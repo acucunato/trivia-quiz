@@ -1,0 +1,14 @@
+body, html {
+    background-image: url(assets/images/hogwarts-castle-.jpg);
+    font-family: 'Crimson Pro', serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.container {
+    background-color:whitesmoke;
+    padding: 10px;
+    border-radius: px;
+}

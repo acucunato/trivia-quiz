@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- bootstrap style sheet -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <!-- add google fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Crimson+Pro|Henny+Penny&display=swap" rel="stylesheet">
+
+    <!-- stylesheet -->
+    <link rel="stylesheet" href="style.css">
+
+    <title>Trivia Quiz</title>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class ="col-md-3">
+                    <button type="button" class="btn btn-secondary" id="highscores-btn"><h4>View Highscores</h4></button>
+            </div>
+            <div class="col"></div>
+            <div class="col-md-3 text-center">
+                    <button type="button" class="btn btn-primary" id="start-btn"><h2>Start Game</h2></button>
+            </div>
+            <div class="col"></div>
+            <div class="col-md-3" id="timer">
+                <h3>Timer: <span id="timeleft">0</span></h3>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col text-center">
+        <div id="question-container" class="hide">
+            <div id="question"><h2>Questions</h2></div>
+        </div>
+        </div>
+        </div>
+        <div class="row">
+            <div class="col text-center">
+                <div class="controls">
+                 <div class="btn-group-vertical">
+                <button type="button" class="btn btn-secondary" id="answerBtn">answer 1</button>
+                <button type="button" class="btn btn-secondary" id="answerBtn">answer 2</button>
+                <button type="button" class="btn btn-secondary" id="answerBtn">answer 3</button>
+                <button type="button" class="btn btn-secondary" id="answerBtn">answer 4</button>
+                 </div>
+                </div>      
+            </div>
+        </div>
+    </div>
+
+
+    
+</body>
+</html>
