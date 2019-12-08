@@ -1,14 +1,33 @@
 body, html {
-    background-image: url(assets/images/hogwarts-castle-.jpg);
+    background-image: url(assets/images/871025.png);
+    /* background-size: cover; */
+    background-position: center center;
     font-family: 'Crimson Pro', serif;
-    display: flex;
     justify-content: center;
     align-items: center;
-
+    width: 100vw;
+    height: 100vh;
 }
 
 .container {
     background-color:whitesmoke;
-    padding: 10px;
-    border-radius: px;
+    opacity: 95%;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+#start-container {
+    font-family: 'Henny Penny', cursive;
+}
+
+#answerBtn {
+    font-size: 20px;
+}
+
+#start-btn {
+    padding: 20px;
+}
+
+.hide {
+    display: none;
 }

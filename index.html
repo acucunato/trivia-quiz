@@ -16,32 +16,28 @@
     <title>Trivia Quiz</title>
 </head>
 <body>
-    <div class="container">
-        <div class="row">
-            <div class ="col-md-3">
-                    <button type="button" class="btn btn-secondary" id="highscores-btn"><h4>View Highscores</h4></button>
-            </div>
-            <div class="col"></div>
-            <div class="col-md-3 text-center">
-                    <button type="button" class="btn btn-primary" id="start-btn"><h2>Start Game</h2></button>
-            </div>
-            <div class="col"></div>
-            <div class="col-md-3" id="timer">
-                <h3>Timer: <span id="timeleft">0</span></h3>
-            </div>
-        </div>
-        <br>
-        <div class="row">
-            <div class="col text-center">
+        <nav class="navbar navbar-expand-lg navbar-light" style="background-color:whitesmoke; opacity: 95%;">
+                <button type="button" class="btn btn-light" id="highscores-btn" style="font-family: 'Henny Penny', cursive;"><h4>View Highscores</h4></button>
+
+                  <div class="navbar-nav ml-auto">
+                        <div id="timer" style="font-family: 'Henny Penny', cursive;">
+                                <h3>Timer: <span id="timeleft">75</span></h3>
+                            </div>
+                  </div>
+                </div>
+              </nav>
+    <br><br>
+    <div class="container" id="game-container">
         <div id="question-container" class="hide">
-            <div id="question"><h2>Questions</h2></div>
-        </div>
-        </div>
+        <div class="row">
+            <div class="col text-center">
+            <div id="question" style="font-family: 'Henny Penny', cursive;"><h2>Questions</h2></div>
+         </div>
         </div>
         <div class="row">
             <div class="col text-center">
-                <div class="controls">
-                 <div class="btn-group-vertical">
+
+             <div class="btn-group-vertical" id="answerBtnGroup">
                 <button type="button" class="btn btn-secondary" id="answerBtn">answer 1</button>
                 <button type="button" class="btn btn-secondary" id="answerBtn">answer 2</button>
                 <button type="button" class="btn btn-secondary" id="answerBtn">answer 3</button>
@@ -50,9 +46,23 @@
                 </div>      
             </div>
         </div>
+            <div id="start-container" class="text-center">
+            <div class="controls" id="start-game">
+                <h3>Click "Start Game" to begin Harry Potter Trivia Quiz!<br>
+                    You will have 75 seconds to complete this quiz, for every wrong answer, your score time will be penalized by 10 points.<br>
+                    Good Luck & don't let the Muggles get you down!</h3>
+                    <br>
+                    <img src="https://media.giphy.com/media/hujejOtss7zG0/giphy.gif"/>
+            <div id="start-btn">
+                    <button type="button" class="btn btn-secondary" id="start-btn"><h2>Start Game</h2></button>
+                </div>
+        </div>
+    </div>
     </div>
 
-
+<!-- js link -->
+    <script src="main.js"></script>
+    <script src="questions.js"></script>
     
 </body>
 </html>
