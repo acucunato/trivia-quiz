@@ -20,12 +20,19 @@ body, html {
     font-family: 'Henny Penny', cursive;
 }
 
-#answerBtn {
+#answerBtn1, #answerBtn2,
+#answerBtn3, #answerBtn4 {
     font-size: 20px;
+    padding: 10px;
+    margin: 5px;
 }
 
 #start-btn {
     padding: 20px;
+}
+
+#question {
+    font-size: 30px;
 }
 
 .hide {
