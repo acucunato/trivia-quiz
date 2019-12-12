@@ -18,33 +18,29 @@ var secondsLeft = 75;
 var userScore = 0;
 var currentQuestIndex = 0;
 
+var highScoresContainer = document.getElementById("high-scores-container");
+var userScoreInput = document.getElementById("user-score");
+var submitInitalsBtn = document.getElementById("initals-submit");
+var topClassList = document.getElementById("high-scores-list");
+var nameEl = document.getElementById("name");
+var people = [{ name: secondsLeft }];
+var highScoresBtn = document.getElementById("highscores-btn");
 
-startBtn.addEventListener("click", startGame)
+
+startBtn.addEventListener("click", startGame);
+
+
+highScoresBtn.addEventListener("click", function() {
+    startContainer.classList.add("hide");
+    questionContainer.classList.add("hide");
+    highScoresContainer.classList.remove("hide");
+});
 
 function startGame() {
     setTime();
     startContainer.classList.add("hide")
     questionContainer.classList.remove("hide")
     nextQuestion();
-
-}
-
-function nextQuestion() {
-    showQuestion(questions[currentQuestIndex])
-}
-
-function showQuestion(question) {
-
-    if(currentQuestIndex == questions.length) {
-       questionContainer.style.display = "none";
-       // high scores function
-    }
-
-    questionEl.innerText = question.title
-    answerBtnOne.innerText = questions[currentQuestIndex].choices[0]
-    answerBtnTwo.innerText = questions[currentQuestIndex].choices[1]
-    answerBtnThree.innerText = questions[currentQuestIndex].choices[2]
-    answerBtnFour.innerText = questions[currentQuestIndex].choices[3]
 
     answerBtnGroup.addEventListener("click", function (e){
         var buttonAnswer = e.target.innerText;
@@ -56,34 +52,65 @@ function showQuestion(question) {
             currentQuestIndex++;
             nextQuestion();
         }
+    })
+}
 
-    })}
+function nextQuestion() {
+    showQuestion(questions[currentQuestIndex])
+}
+
+function showQuestion(question) {
+
+    if(currentQuestIndex == questions.length) {
+       questionContainer.classList.add("hide");
+       highScoresContainer.classList.remove("hide");
+    }
+
+    questionEl.innerText = question.title
+    answerBtnOne.innerText = questions[currentQuestIndex].choices[0]
+    answerBtnTwo.innerText = questions[currentQuestIndex].choices[1]
+    answerBtnThree.innerText = questions[currentQuestIndex].choices[2]
+    answerBtnFour.innerText = questions[currentQuestIndex].choices[3]
+
+}
 
 function setTime() {
     var timerInterval = setInterval(function() {
       secondsLeft--;
       timeEl.textContent = secondsLeft;
   
-      if(secondsLeft === 0) {
+      if(secondsLeft === 0 || currentQuestIndex == questions.length) {
+        userScoreInput.append(secondsLeft);
         clearInterval(timerInterval);
-        // sendMessage();
+        highScoresContainer.classList.remove("hide");
+        questionContainer.classList.add("hide");
       }
+      //if have time user score is 0 add a gif sendmessage()// 
   
     }, 1000);
   }
 
-  function sendMessage() {
-      //send message when time is up function 
-//   gameContainer.textContent = " ";
-
-//   var imgEl = document.createElement("img");
-
-//   imgEl.setAttribute("src", "images/image_1.jpg");
-//   mainEl.appendChild(imgEl);
-
-// }
+function addHighScores() {
+    // event.preventDefault();
+    var name = nameEl.value;
+    var li = document.createElement("div");
+    li.id = people.length;
+    li.innerHTML = name + ":   " + secondsLeft;
+    people.push({ name: secondsLeft });
+    topClassList.append(li);
   }
 
-  function resetQuiz () {
+submitInitalsBtn.addEventListener("click", addHighScores);
 
-  }
+
+//   function sendMessage() {
+//       //send message when time is up function 
+// //   gameContainer.textContent = "OH NO! You're a Muggle!";
+
+// //   var imgEl = document.createElement("img");
+
+// //   imgEl.setAttribute("src", "https://media.giphy.com/media/A0GlPP8gwO4VO/giphy.gif");
+// //   mainEl.appendChild(imgEl);
+
+// // }
+//   }
