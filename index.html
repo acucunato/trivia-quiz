@@ -15,9 +15,6 @@
     <title>Trivia Quiz</title>
 </head>
 <body>
-<audio id="myAudio">
-    <source src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/430111&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true" type="audio">
-</audio>
         <nav class="navbar navbar-expand-lg navbar-light" style="background-color:whitesmoke; opacity: 95%;">
                 <button type="button" class="btn btn-light" id="highscores-btn" style="font-family: 'Henny Penny', cursive;"><h4>View Highscores</h4></button>
 
@@ -59,7 +56,7 @@
                     <br>
                     <img src="https://media.giphy.com/media/hujejOtss7zG0/giphy.gif"/>
             <div id="start-btn">
-                    <button type="button" class="btn btn-secondary" id="start-btn" onclick=""><h2>Start Game</h2></button>
+                    <button type="button" class="btn btn-secondary" id="start-btn"><h2>Start Game</h2></button>
                 </div>
         </div>
     </div>
@@ -68,7 +65,7 @@
         <h2>Hermoine will be so proud!</h2>
         <img src="https://media.giphy.com/media/qLHzYjlA2FW8g/giphy.gif"/>
         <br><br>
-        <h2>Your Score:<span id="user-score"></span></h2><br>
+        <h2>Your Score: <span id="user-score"></span></h2><br>
 
         <h1>Top of the Class</h1>
         <ul id="high-scores-list"></ul><br>
@@ -77,6 +74,15 @@
         <input type="text" class="form-control" id="name" placeholder="Initials">
         <br>
         <button type="submit" class="btn btn-secondary" id="initals-submit">Submit</button>
+
+    </div>
+    <div class="text-center hide" style="font-family: 'Henny Penny', cursive;" id="muggle">
+        <h1>OH NO!! You're a Muggle!<br>
+            Your Hogwarts Acceptance Letter must have gotten lost in the mail....<br></h1>
+            <img src="https://media.giphy.com/media/A0GlPP8gwO4VO/giphy.gif"/>
+            <br><br>
+            <h2>Better Luck Next Time!</h2><br>
+            <!-- <button class="btn btn-light" id="restart-quiz">Restart Quiz</button> -->
     </div>
 </div>
     </div>

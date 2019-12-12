@@ -3,21 +3,16 @@ var gameContainer = document.getElementById("game-container");
 var startBtn = document.getElementById("start-btn");
 var startContainer = document.getElementById("start-container");
 var questionContainer = document.getElementById("question-container");
-
 var timeEl = document.getElementById("timeleft");
 var questionEl = document.getElementById("question");
 var answerBtnGroup = document.getElementById("answerBtnGroup");
-
 var answerBtnOne = document.getElementById("answerBtn1");
 var answerBtnTwo = document.getElementById("answerBtn2");
 var answerBtnThree = document.getElementById("answerBtn3");
 var answerBtnFour = document.getElementById("answerBtn4");
-
-
 var secondsLeft = 75;
 var userScore = 0;
 var currentQuestIndex = 0;
-
 var highScoresContainer = document.getElementById("high-scores-container");
 var userScoreInput = document.getElementById("user-score");
 var submitInitalsBtn = document.getElementById("initals-submit");
@@ -25,16 +20,12 @@ var topClassList = document.getElementById("high-scores-list");
 var nameEl = document.getElementById("name");
 var people = [{ name: secondsLeft }];
 var highScoresBtn = document.getElementById("highscores-btn");
+var muggleContainer = document.getElementById("muggle");
+var restartQuizBtn = document.getElementById("restart-quiz");
 
+// var highScoreNames = localStorage.getItem("highscoresnames");
 
 startBtn.addEventListener("click", startGame);
-
-
-highScoresBtn.addEventListener("click", function() {
-    startContainer.classList.add("hide");
-    questionContainer.classList.add("hide");
-    highScoresContainer.classList.remove("hide");
-});
 
 function startGame() {
     setTime();
@@ -79,38 +70,65 @@ function setTime() {
       secondsLeft--;
       timeEl.textContent = secondsLeft;
   
-      if(secondsLeft === 0 || currentQuestIndex == questions.length) {
+      if(//secondsLeft === 0 || //
+        currentQuestIndex == questions.length) {
         userScoreInput.append(secondsLeft);
         clearInterval(timerInterval);
         highScoresContainer.classList.remove("hide");
         questionContainer.classList.add("hide");
+      } else if (secondsLeft === 0) {
+          clearInterval(timerInterval);
+          sendMessage();
       }
-      //if have time user score is 0 add a gif sendmessage()// 
-  
     }, 1000);
   }
 
 function addHighScores() {
-    // event.preventDefault();
+    //get item
+    event.preventDefault();
     var name = nameEl.value;
-    var li = document.createElement("div");
-    li.id = people.length;
-    li.innerHTML = name + ":   " + secondsLeft;
+    var list = document.createElement("div");
+    list.id = people.length;
+    list.innerHTML = name + ":   " + secondsLeft;
     people.push({ name: secondsLeft });
-    topClassList.append(li);
+    topClassList.append(list);
+
+    var user = {
+    name: nameEl.value,
+    score: userScoreInput.value,
+}
+
+        // set new submission
+        localStorage.setItem("user", JSON.stringify(user));
+    
+        // get most recent submission
+        var lastUser = JSON.parse(localStorage.getItem("user"));
+        nameEl.textContent = lastUser.name;
+        secondsLeft.textContent = lastUser.score;
   }
 
 submitInitalsBtn.addEventListener("click", addHighScores);
 
+highScoresBtn.addEventListener("click", function() {
+    startContainer.classList.add("hide");
+    questionContainer.classList.add("hide");
+    highScoresContainer.classList.remove("hide");
+});
 
-//   function sendMessage() {
-//       //send message when time is up function 
-// //   gameContainer.textContent = "OH NO! You're a Muggle!";
 
-// //   var imgEl = document.createElement("img");
+  function sendMessage() {
+    startContainer.classList.add("hide");
+    questionContainer.classList.add("hide");
+    highScoresContainer.classList.add("hide");
+    muggleContainer.classList.remove("hide");
+}
 
-// //   imgEl.setAttribute("src", "https://media.giphy.com/media/A0GlPP8gwO4VO/giphy.gif");
-// //   mainEl.appendChild(imgEl);
+// function restartQuiz() {
+//     startContainer.style.display = "block";
+//     questionContainer.classList.add("hide");
+//     highScoresContainer.classList.add("hide");
+//     muggleContainer.classList.add("hide");
+//     setTime();
+// }
 
-// // }
-//   }
+// restartQuizBtn.addEventListener("click", restartQuiz);

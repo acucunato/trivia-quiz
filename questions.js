@@ -16,12 +16,12 @@ var questions = [
         answer: "Lumos Maximus"
       },
       {
-        title: "How did Siris Black escape Azkaban?",
+        title: "How did Sirius Black escape Azkaban?",
         choices: ["In a mass breakout", "Turned into an animagus", "Polyjuice Potion and turned into one of the guards", "Persuasion" ],
         answer: "Turned into an animagus"
       },
       {
-        title: "Which family is the story the Tale of the Three Brothers based on?",
+        title: "Which wizard family is the story the Tale of the Three Brothers based on?",
         choices: ["The Riddle Family", "The Crouch Family", "The Peverell Family", "The Dumbledore Family"],
         answer: "The Peverell Family"
       },
