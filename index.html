@@ -10,13 +10,17 @@
     <!-- add google fonts -->
     <link href="https://fonts.googleapis.com/css?family=Crimson+Pro|Henny+Penny&display=swap" rel="stylesheet">
 
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <!-- stylesheet -->
     <link rel="stylesheet" href="style.css">
     <title>Harry Potter Trivia Quiz</title>
 </head>
 <body>
         <nav class="navbar navbar-expand-lg navbar-light" style="background-color:whitesmoke; opacity: 95%;">
-                <button type="button" class="btn btn-light" id="highscores-btn" style="font-family: 'Henny Penny', cursive;"><h4>View Highscores</h4></button>
+
+                <button type="button" class="btn btn-light" id="highscores-btn" data-toggle="modal" data-target="#exampleModal" style="font-family: 'Henny Penny', cursive;"><h4>View Highscores</h4></button>
 
                   <div class="navbar-nav ml-auto">
                         <div id="timer" style="font-family: 'Henny Penny', cursive;">
@@ -68,12 +72,13 @@
         <h2>Your Score: <span id="user-score"></span></h2><br>
 
         <h1>Top of the Class</h1>
-        <ul id="high-scores-list"></ul><br>
+        <ol id="high-scores-list"></ol><br>
 
         <label for="form-control">Enter Your Initials Below to be added to Top of the Class</label>
         <input type="text" class="form-control" id="name" placeholder="Initials">
         <br>
         <button type="submit" class="btn btn-secondary" id="initals-submit">Submit</button>
+        <!-- <button class="btn btn-light" id="restart-quiz">Restart Quiz</button> -->
 
     </div>
     <div class="text-center hide" style="font-family: 'Henny Penny', cursive;" id="muggle">
@@ -82,7 +87,7 @@
             <img src="https://media.giphy.com/media/A0GlPP8gwO4VO/giphy.gif"/>
             <br><br>
             <h2>Better Luck Next Time!</h2><br>
-            <!-- <button class="btn btn-light" id="restart-quiz">Restart Quiz</button> -->
+
     </div>
 </div>
     </div>

@@ -23,7 +23,6 @@ var highScoresBtn = document.getElementById("highscores-btn");
 var muggleContainer = document.getElementById("muggle");
 var restartQuizBtn = document.getElementById("restart-quiz");
 
-// var highScoreNames = localStorage.getItem("highscoresnames");
 
 startBtn.addEventListener("click", startGame);
 
@@ -31,6 +30,7 @@ function startGame() {
     setTime();
     startContainer.classList.add("hide")
     questionContainer.classList.remove("hide")
+    highScoresContainer.classList.add("hide")
     nextQuestion();
 
     answerBtnGroup.addEventListener("click", function (e){
@@ -83,28 +83,27 @@ function setTime() {
   }
 
 function addHighScores() {
-    //get item
     event.preventDefault();
-    var name = nameEl.value;
-    var list = document.createElement("div");
-    list.id = people.length;
-    list.innerHTML = name + ":   " + secondsLeft;
-    people.push({ name: secondsLeft });
-    topClassList.append(list);
 
-    var user = {
-    name: nameEl.value,
-    score: userScoreInput.value,
-}
+    var userName = nameEl.value;
+    var userScore = secondsLeft;
 
-        // set new submission
-        localStorage.setItem("user", JSON.stringify(user));
-    
-        // get most recent submission
-        var lastUser = JSON.parse(localStorage.getItem("user"));
-        nameEl.textContent = lastUser.name;
-        secondsLeft.textContent = lastUser.score;
+
+        localStorage.setItem("userName", JSON.stringify(userName));
+        localStorage.setItem("userScore", JSON.stringify(userScore));
+        lastPlayer();
   }
+
+  function lastPlayer() {
+    var userName = localStorage.getItem("userName");
+    var userScore = localStorage.getItem("userScore");
+
+        var li = document.createElement("li");
+        li.innerHTML = JSON.parse(userName) + " - " + userScore;
+        topClassList.append(li);
+      }
+
+
 
 submitInitalsBtn.addEventListener("click", addHighScores);
 
@@ -123,11 +122,10 @@ highScoresBtn.addEventListener("click", function() {
 }
 
 // function restartQuiz() {
+//     timeEl.textContent = 75; 
 //     startContainer.style.display = "block";
-//     questionContainer.classList.add("hide");
+//     // questionContainer.classList.add("hide");
 //     highScoresContainer.classList.add("hide");
-//     muggleContainer.classList.add("hide");
-//     setTime();
 // }
 
 // restartQuizBtn.addEventListener("click", restartQuiz);
