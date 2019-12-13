@@ -70,13 +70,12 @@ function setTime() {
       secondsLeft--;
       timeEl.textContent = secondsLeft;
   
-      if(//secondsLeft === 0 || //
-        currentQuestIndex == questions.length) {
+      if(currentQuestIndex == questions.length) {
         userScoreInput.append(secondsLeft);
         clearInterval(timerInterval);
         highScoresContainer.classList.remove("hide");
         questionContainer.classList.add("hide");
-      } else if (secondsLeft === 0) {
+      } else if (secondsLeft === 0 || secondsLeft < 0) {
           clearInterval(timerInterval);
           sendMessage();
       }
